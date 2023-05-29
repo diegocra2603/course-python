@@ -1,22 +1,22 @@
+from pathlib import Path
 
-# class Perro:
-#     def __init__(self, Correa):
-#         self.correa = Correa()
+path = Path()
+paths = [p for p in path.iterdir() if p.is_dir()]
 
+dependencias = {
+    "db" : "base de datos",
+    "api" : "esta es la api",
+    "graphql": "Esto es graphql"
+}
 
-# import usuario
+def load(p):
+    paquete = __import__(str(p).replace("/", "."))
+    try:
+        paquete.init(**dependencias)
+    except:
+        print("el paquete no tiene funcion init")
+        
 
-
-# def guardar():
-#     usuario.guardar()
-
-
-# def guardar(entidad):
-#     entidad.guardar()
-
-
-def init_app(bbdd, api):
-    # Inicializacion de modulo
-    print("inicializando")
+list(map(load, paths))
 
 

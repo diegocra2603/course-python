@@ -1,2 +1,2 @@
-def ini():
-    print("Soy modulo uno")
+def init(graphql, **_):
+    print("Soy modulo uno: {graphql}")
